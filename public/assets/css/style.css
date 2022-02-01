@@ -57,6 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -178,24 +179,21 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
   margin-left: 5px;
 }
-.navbar > ul > li > a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: #fff;
-  visibility: hidden;
-  width: 0px;
-  transition: all 0.3s ease-in-out 0s;
+
+li a {
+  color: rgb(207, 207, 207);
+  transition: 0.5s ease;
 }
-.navbar a:hover:before, .navbar li:hover > a:before, .navbar .active:before {
-  visibility: visible;
+li .active{
+  color: white;
+  border-bottom: 3px solid white;
   width: 100%;
+  font-size: 600;
+  border-radius: 1px;
+  transition: 0.5s ease; 
 }
-.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #fff;
+.navbar li a:hover{
+  color: white;
 }
 .navbar .getstarted, .navbar .getstarted:focus {
   padding: 8px 25px;
@@ -234,13 +232,13 @@ h1, h2, h3, h4, h5, h6 {
 .navbar .dropdown ul a {
   padding: 10px 20px;
   font-size: 14px;
-  color: #2c4964;
+  color: white;
 }
 .navbar .dropdown ul a i {
   font-size: 12px;
 }
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #5846f9;
+  color: white;
 }
 .navbar .dropdown:hover > ul {
   opacity: 1;
@@ -422,6 +420,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   #hero .hero-img {
     text-align: center;
+    
+
   }
   #hero .hero-img img {
     width: 50%;
@@ -442,7 +442,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 575px) {
   #hero .hero-img img {
-    width: 80%;
+    width: 50%;
   }
 }
 @media (max-width: 575px), (max-height: 600px) {

@@ -25,6 +25,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/card.css') }}">
 
 </head>
 
@@ -33,17 +34,17 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="index.html">Courses for FREE</a></h1>
+      <img src="assets/img/logo.png" alt="" style="width:40px; height:50px; ">
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
-          <li><a class="nav-link scrollto" href="#about">À propos</a></li>
-          <li><a class="nav-link scrollto" href="#formations">Formations</a></li>
-          <li><a class="nav-link scrollto " href="#formateurs">Formateurs</a></li>
-          <ul class="nav-link scrollto" style ="margin-left:30px;">
+        <ul class="nav-bar">
+          <li><a class="nav-link active" href="{{ route('home') }}">Accueil</a></li>
+          <li><a class="nav-link" href="#about">À propos</a></li>
+          <li><a class="nav-link" href="{{ route('formation') }}">Formations</a></li>
+          <li><a  class="nav-link" href="#formateurs">Formateurs</a></li>
+          <ul  style ="margin-left:30px;">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -97,7 +98,7 @@
           <div><a href="#about" class="btn-get-started scrollto">Rejoignez gratuitement</a></div>
         </div>
         <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
-          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="" style="margin-left: 80px;">
         </div>
       </div>
     </div>
@@ -172,21 +173,24 @@
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
-      
-          <table >
-<tr>
-<td>Id</td>
-<td>First Name</td>
+        <div class="container" style= " margin-left:40px;display: flex; justify-content: center; align-items: center;flex-wrap: wrap; max-width: 1200px; ">
+        @foreach ($formation->take(3) as $formation)
 
-</tr>
-@foreach ($formation as $formation)
-<tr>
-<td>{{ $formation['formation_name'] }}</td>
-<td>{{ $formation['formation_description'] }}</td>
+           <div class="card" style="display: flex;justify-content: center;align-items: center;flex-wrap: wrap; background:linear-gradient(45deg, #5846f9 0%, #490d8d 100%);">
+            <div class="box">
+              <div class="content">
+                <h2>{{ $formation['id'] }}</h2>
+              <h3>{{ $formation['formation_name'] }}</h3>
+              <p>{{ $formation['formation_description'] }}</p>
+              <a href="#">Read More</a>
+              </div>
+            </div>
+         </div>
+         @endforeach
 
-</tr>
-@endforeach
-</table>
+       </div>
+
+       
       </div>
 
     </section><!-- End Services Section -->
@@ -571,7 +575,14 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+     $('.nav-bar .nav-link').click(function() {
+    $('.nav-link').removeClass('active')
+    $(this).closest('.nav-link').addClass('active')
+  })
 
+  </script>                                  
 </body>
 
 </html>
