@@ -26,7 +26,125 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/card.css') }}">
+  <style>
+    *::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+img{
+    width: 100%;
+}
+.body1{
+  width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    padding: 0 1.5rem;
+    margin-bottom:-350px;
+
+}
+.blog-post{
+   width: 100%;
+   max-width: 58rem;
+   height: 300px;
+   padding: 5rem;
+   background-color: #fff;
+   box-shadow: 0 1.4rem 8rem rgba(0,0,0,.2);
+   display: flex;
+   align-items: center;
+   border-radius: .8rem;
+
+}
+.blog-post_img{
+   min-width: 25rem;
+   max-width: 25rem;
+   height: 15rem;
+   transform: translateX(-8rem);
+   position: relative;
+}
+.blog-post_img img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   display:block;
+   border-radius: .8rem;
+
+}
+.blog-post_img: :before{
+   content: '';
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   background: linear-gradient(to right, rgba(79, 172, 254, .8),  rgba(0, 242, 254, .8));
+   box-shadow: .5rem .5rem 3rem 1px rgba(0,0,0,.05);
+   border-radius: .8rem;
+}
+.blog-post_date span{
+   display: block;
+   color: rgba(0,0,0,.5);
+   font-size: 1.6rem;
+   font-weight: 600;
+   margin: .5rem 0;
+}
+.blog-post_title{
+   font-size: 2.5rem;
+   margin: 1.5rem e 2rem;
+   text-transform: uppercase;
+   color: #4facfe;
+}
+.blog-post_text{
+   margin-bottom: 3rem;
+   font-size: 1.4rem;
+   color: rgba(0,0,0,.7);
+}
+.blog-post_cta{
+   display: inline-block;
+   padding: 1.5rem 3rem;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   font-size: 1.2rem;
+   color: #fff;
+   background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+   border-radius: .8rem;
+   text-decoration: none;
+}
+.blog-post_cta:hover{
+   background-image: linear-gradient(to right, #0012fe 0%, #4facfe 100%);
+}
+@media screen and (max-width: 1068px) {
+   .blog-post{
+       max-width: 40rem;
+   }
+   .blog-post_img{
+       min-width: 10rem;
+       max-width: 10rem;
+   }
+  }
+@media screen and (max-width: 868px) {
+   .blog-post{
+       padding: 2.5rem;
+   }
+   .blog-post_img{
+     margin-top:220px;
+     margin-left:-50px;
+     padding-right:20px;
+    width: 100px;
+   height: 180px;
+   position: center;
+       min-width: 15rem;
+       max-width: 15rem;
+       transform: translate(0, -8rem);
+
+   }
+  }
+  </style>
 </head>
 
 <body>
@@ -104,65 +222,37 @@
     </div>
 
   </section><!-- End Hero -->
+  @foreach ($formation as $formation)
 
+<section class="body1">
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
+    <div class="blog-post">
 
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="150">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-            <h3>Voluptatem dignissimos provident quasi corporis</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-            </ul>
-            <a href="#" class="read-more">Read More <i class="bi bi-long-arrow-right"></i></a>
-          </div>
-        </div>
-
+   <div class="blog-post_img">
+      <img src="assets/img/about.jpg" alt="">
+   </div>
+   <div  class="blog-post_info">
+     
+      <div class="blog-post_date">
+         <span style="font-size:10px;">Sunday</span>
+         <span style="font-size:10px;">{{ $formation['created_at'] }}</span>
       </div>
-    </section><!-- End About Section -->
+      <h1 style="font-size:15px;" class="blog-post_title">{{ $formation['formation_name'] }}</hl>
+      <p style="font-size:12px;" class="blog-post_text">
+      {{ $formation['formation_description'] }}
+      </p>
+      <a href="#" class="blog-post_cta">Read more</a>
+   </div>
 
-    <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
-      <div class="container">
+</div>
 
-        <div class="row counters">
+</section>
+@endforeach
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Clients</p>
-          </div>
 
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Projects</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Hours Of Support</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Hard Workers</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Counts Section -->
+  
 
 
       
