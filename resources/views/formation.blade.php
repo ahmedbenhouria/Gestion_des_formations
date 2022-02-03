@@ -49,7 +49,7 @@ img{
 
 }
 .blog-post{
-   width: 100%;
+   width: 800px;
    max-width: 58rem;
    height: 300px;
    padding: 5rem;
@@ -66,6 +66,7 @@ img{
    height: 15rem;
    transform: translateX(-8rem);
    position: relative;
+
 }
 .blog-post_img img{
    width: 100%;
@@ -95,18 +96,18 @@ img{
 }
 .blog-post_title{
    font-size: 2.5rem;
-   margin: 1.5rem e 2rem;
    text-transform: uppercase;
    color: #4facfe;
 }
 .blog-post_text{
+  margin-top:10px;
    margin-bottom: 3rem;
    font-size: 1.4rem;
    color: rgba(0,0,0,.7);
 }
 .blog-post_cta{
    display: inline-block;
-   padding: 1.5rem 3rem;
+   padding: 0.9rem 1rem;
    letter-spacing: 1px;
    text-transform: uppercase;
    font-size: 1.2rem;
@@ -117,6 +118,7 @@ img{
 }
 .blog-post_cta:hover{
    background-image: linear-gradient(to right, #0012fe 0%, #4facfe 100%);
+   color: white;
 }
 @media screen and (max-width: 1068px) {
    .blog-post{
@@ -129,12 +131,15 @@ img{
   }
 @media screen and (max-width: 868px) {
    .blog-post{
+    max-width: 30rem;
+
        padding: 2.5rem;
    }
    .blog-post_img{
      margin-top:220px;
      margin-left:-50px;
-     padding-right:20px;
+     padding-right:50px;
+     margin-right:80px;
     width: 100px;
    height: 180px;
    position: center;
@@ -162,7 +167,7 @@ img{
           <li><a class="nav-link " href="#about">À propos</a></li>
           <li><a class="nav-link active " href="{{ route('formation') }}">Formations</a></li>
           <li><a class="nav-link  " href="#formateurs">Formateurs</a></li>
-          <ul class="nav-link " style ="margin-left:30px;">
+          <ul id="dropdownNav" class="nav-link " style ="margin-left:30px;">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -233,18 +238,20 @@ img{
    <div class="blog-post_img">
       <img src="assets/img/about.jpg" alt="">
    </div>
-   <div  class="blog-post_info">
+   <div  style="margin-left:-90px;" class="blog-post_info">
      
-      <div class="blog-post_date">
+     <a >
+     <div class="blog-post_date">
          <span style="font-size:10px;">Sunday</span>
-         <span style="font-size:10px;">{{ $formation['created_at'] }}</span>
+         <span style="font-size:10px;">{{ $formation->created_at->format('d/m/Y')}}</span>
       </div>
-      <h1 style="font-size:15px;" class="blog-post_title">{{ $formation['formation_name'] }}</hl>
+      <h1 style="font-size:22px; " class="blog-post_title">{{ $formation->formation_name }}</hl>
       <p style="font-size:12px;" class="blog-post_text">
-      {{ $formation['formation_description'] }}
+      {{ $formation->formation_description }}
       </p>
-      <a href="#" class="blog-post_cta">Read more</a>
+      <a href="formationDetails/{{ $formation->id }}" class="blog-post_cta">Read more</a>
    </div>
+     </a>
 
 </div>
 

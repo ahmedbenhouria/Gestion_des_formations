@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/formation', [App\Http\Controllers\FormationController::class, 'formation'])->name('formation');
+Route::get('/formations', 'App\Http\Controllers\FormationController@index')->name('formation');
+Route::get('/formationDetails/{id}', 'App\Http\Controllers\FormationController@details');

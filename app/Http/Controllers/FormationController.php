@@ -12,9 +12,14 @@ class FormationController extends Controller
         $this->middleware('auth');
     }
     
-    public function formation()
+    public function index()
     {
         $formation = Formation::all();
-        return view('formation', ['formation' => $formation]);
+        return view('formation', compact('formation'));
+    }
+
+    function details($id){
+        $formation = Formation::find($id);
+        return view('formationDetails', ['formation'=>$formation]);
     }
 }

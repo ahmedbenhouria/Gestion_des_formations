@@ -277,11 +277,23 @@ li .active{
   transition: 0.5s;
 }
 
+
 @media (max-width: 991px) {
   .mobile-nav-toggle {
+    margin-top: -40px;
+    margin-left: 400px;
     display: block;
   }
-
+  #dropdownNav{
+    position: fixed;
+    margin-right: 250px;
+    margin-left: 100px;
+    margin-top: 180px;
+    padding-top: 180px;
+  }
+  .nav-link mobile{
+    margin-top: 500px;
+  }
   .navbar ul {
     display: none;
   }
