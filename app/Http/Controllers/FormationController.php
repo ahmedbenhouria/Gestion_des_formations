@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Formation;
+use App\Models\Cours;
 
 class FormationController extends Controller
 {
@@ -19,7 +20,8 @@ class FormationController extends Controller
     }
 
     function details($id){
-        $formation = Formation::find($id);
-        return view('formationDetails', ['formation'=>$formation]);
+        $formation['formation'] = Formation::find($id);
+        return view('formationDetails')->with($formation);
     }
+    
 }

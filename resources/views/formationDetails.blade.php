@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Formations</title>
+  <title>Details</title>
 
 
   <!-- Favicons -->
@@ -15,7 +15,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,8 +27,88 @@
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/style2.css" rel="stylesheet">
+
   <link rel="stylesheet" href="{{ asset('../css/card.css') }}">
 
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Play&display=swap");
+
+      html{
+        font-family: "Play", sans-serif;
+
+      }
+      body{
+        background-color: #ECECEC;
+        font-family: "Play", sans-serif;
+      }
+      .title {
+        font-size: 47px;
+        color: white;
+        font-style:700;
+      }
+      .text {
+        font-size: 18px;
+        color: white;
+      }
+    
+      .card{
+        position: relative;
+        width:430px;
+        height:420px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+      }
+    
+      span{
+  position: relative;
+ 
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  perspective: 1000px;
+}
+span a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Play', sans-serif;
+  
+}
+span a:before,
+span a:after{
+  position: absolute;
+  content: "Enroll Now";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+}
+span a:before{
+  font-size: 21px;
+  color: black;
+  background: #FFD300;
+  transform: rotateY(0deg) translateZ(25px);
+  
+}
+span a:after{
+  background: white;
+  color: black;
+  transform: rotateX(90deg) translateZ(25px);
+}
+span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+    </style>
 </head>
 
 <body>
@@ -41,9 +122,9 @@
 
       <nav id="navbar" class="navbar">
         <ul class="nav-bar">
-          <li><a class="nav-link active" href="{{ route('home') }}">Accueil</a></li>
+          <li><a class="nav-link " href="{{ route('home') }}">Accueil</a></li>
           <li><a class="nav-link" href="#about">À propos</a></li>
-          <li><a class="nav-link" href="{{ route('formation') }}">Formations</a></li>
+          <li><a class="nav-link active" href="{{ route('formation') }}">Formations</a></li>
           <li><a  class="nav-link" href="#formateurs">Formateurs</a></li>
           <ul  style ="margin-left:30px;">
                         <!-- Authentication Links -->
@@ -91,33 +172,64 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
-    <div class="container-fluid" data-aos="fade-up">
-      <div class="row justify-content-center">
-        <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Apprendre sans limites</h1>
-          <h2>Découvrez nos différents cours et formations en ligne gratuits, pour élargir vos connaissances ou pour acquérir de nouvelles compétences qui vous aideront à progresser dans votre carrière professionnelle.</h2>
-          <div><a href="#about" class="btn-get-started scrollto">Rejoignez gratuitement</a></div>
-        </div>
-        <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
-          <img src="../assets/img/hero-img.png" class="img-fluid animated" alt="" style="margin-left: 80px;">
-        </div>
+  <div class="row">
+  <div class="col-sm-6">
+    <div style="margin-left:130px;" class="card">
+      <div class="card-body">
+        <h5 style="color: black;" class="card-title">{{ $formation->created_at->format('l j F, Y')}}</h5>
+        <p style="color: black;"  class="card-text">Niveau: {{ $formation->formation_level }}</p>
       </div>
     </div>
+  </div>
+  <div class="col-sm-6">
+  <div style="background-color: transparent; box-shadow:none; border:0; width:700px; margin-left:-20px; " class="card">
+      <div class="card-body">
+        <h5 class="title">{{ $formation->formation_name }}</h5>
+        <p class="text" style="padding-right:20px;">{{ $formation->formation_description }}</p>
+        <span><a href="#" >Enroll Now</a></span>
+      </div>
+   <div>
+  </div>
+</div>
 
   </section><!-- End Hero -->
-
+  
+  
   <section>
-  <div class="jumbotron" style ="width:90%; margin-left:80px;" >
-  <h1 class="display-4">{{ $formation->formation_name }}</h1>
-  <p>{{ $formation->formation_level }}</p>
-  <hr class="my-4">
-  <p class="lead">{{ $formation->formation_description }}</p>
  
-    <a class="btn btn-primary btn-lg" href="#" role="button">Enroll Now</a>
-  </p>
-</div>
-<h2 style="text-align: center;">Episodes</h2>
-  </section>
+<section class="main-content">
+		<div class="container">
+			<h1 style="color: black;" class="text-center text-uppercase mb-5">What will you learn?</h1>
+			<br>
+			<br>
+     
+      @foreach ($formation->cours as $cours)
+			<div class="row flex-center">
+				<div class="col-sm-8 offset-sm-2">
+					<div id="accordion">
+						<div class="accordion-card">
+							<div class="accordion-card__header" >
+								<h5 class="mb-0">
+									<div class="circle-icon">
+										<i style="margin-top: 15px;color: black;"><p>{{ $cours['id'] }}</p></i>
+									</div style="color: black;">
+									{{ $cours['cours_name'] }}
+								</h5>
+							</div>
+							<div >
+								<div style="color: black;" class="accordion-card__body">
+                {{ $cours['cours_description'] }}
+              </div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+      @endforeach
+
+		</div>
+	</section>  </section>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
@@ -133,6 +245,10 @@
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
   <script type="text/javascript">
      $('.nav-bar .nav-link').click(function() {
     $('.nav-link').removeClass('active')

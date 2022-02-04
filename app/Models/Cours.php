@@ -11,7 +11,7 @@ class Cours extends Model
 
     public function formation()
     {
-        return $this->belongsTo('App\Formation');
+        return $this->belongsTo(Formation::class, 'formation_id', 'id');
 
     }
 }

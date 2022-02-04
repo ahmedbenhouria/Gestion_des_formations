@@ -11,7 +11,7 @@ class Formation extends Model
 
     public function cours()
     {
-        return $this->hasMany('App\Cours');
+        return $this->hasMany(Cours::class);
 
     }
     public function user()

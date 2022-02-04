@@ -10,7 +10,6 @@ $factory->define(Formation::class, function (Faker $faker) {
         'formation_name' => $faker->word,
         'formation_description' => $faker->sentence,
         'formation_level' => $faker->randomElement(['Débutant', 'Intermédiaire', 'Avancé']),
-        'cours_id' => $faker->randomNumber,
         'created_at' => now()
     ];
 });

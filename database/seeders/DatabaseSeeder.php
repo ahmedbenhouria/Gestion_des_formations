@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Formation;
+use App\Models\Cours;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        factory(Formation::class, 10)->create()->each( function($formation){
+            $formation->cours()->saveMany(factory(Cours::class, 10)->make());
+        });    
     }
 }

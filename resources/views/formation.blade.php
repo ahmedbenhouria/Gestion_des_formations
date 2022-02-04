@@ -27,6 +27,13 @@
   <link href="assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/card.css') }}">
   <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Play&display=swap");
+
+*{
+  font-family: "Play", sans-serif;
+
+}
     *::before,
 *::after{
     margin: 0;
@@ -42,6 +49,7 @@ img{
     height: 100vh;
     display: flex;
     align-items: center;
+    font-family: "Play", sans-serif;
     justify-content: center;
     background-color: #eee;
     padding: 0 1.5rem;
@@ -104,6 +112,8 @@ img{
    margin-bottom: 3rem;
    font-size: 1.4rem;
    color: rgba(0,0,0,.7);
+   color: black;
+
 }
 .blog-post_cta{
    display: inline-block;
@@ -115,6 +125,7 @@ img{
    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
    border-radius: .8rem;
    text-decoration: none;
+   
 }
 .blog-post_cta:hover{
    background-image: linear-gradient(to right, #0012fe 0%, #4facfe 100%);
@@ -216,13 +227,10 @@ img{
     <div class="container-fluid" data-aos="fade-up">
       <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Apprendre sans limites</h1>
-          <h2>Découvrez nos différents cours et formations en ligne gratuits, pour élargir vos connaissances ou pour acquérir de nouvelles compétences qui vous aideront à progresser dans votre carrière professionnelle.</h2>
-          <div><a href="#about" class="btn-get-started scrollto">Rejoignez gratuitement</a></div>
+          <h1 style="position:center; margin-left: 130px; margin-top:-100px;">Nos formations</h1>
+         
         </div>
-        <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
-          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="" style="margin-left: 80px;">
-        </div>
+        
       </div>
     </div>
 
@@ -242,8 +250,8 @@ img{
      
      <a >
      <div class="blog-post_date">
-         <span style="font-size:10px;">Sunday</span>
-         <span style="font-size:10px;">{{ $formation->created_at->format('d/m/Y')}}</span>
+         <span style="font-size:10px; color: black;">{{ $formation->created_at->format(' l ') }}</span>
+         <span style="font-size:10px; color: black;">{{ $formation->created_at->format('d/m/Y')}}</span>
       </div>
       <h1 style="font-size:22px; " class="blog-post_title">{{ $formation->formation_name }}</hl>
       <p style="font-size:12px;" class="blog-post_text">

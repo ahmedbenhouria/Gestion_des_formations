@@ -18,8 +18,7 @@ class CreateFormationsTable extends Migration
             $table->string('formation_name', 70);	
             $table->string('formation_description');	
             $table->enum('formation_level', ['Débutant', 'Intermédiaire', 'Avancé']);	
-            $table->unsignedInteger('cours_id');
-            $table->foreign('cours_id')->references('id')->on('cours')->onDelete('restrict')->onUpdate('restrict');
+          
             $table->timestamps();
         });
     }
