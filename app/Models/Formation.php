@@ -14,9 +14,5 @@ class Formation extends Model
         return $this->hasMany(Cours::class);
 
     }
-    public function user()
-    {
-        return $this->belongsTo('App\User');
 
-    }
 }

@@ -14,7 +14,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
     /**
@@ -24,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         $formation = Formation::all();
         return view('home', ['formation' => $formation]);
     }

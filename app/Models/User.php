@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
+    use LaratrustUserTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -42,9 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function formations()
+    public function formateur()
     {
-        return $this->hasMany('App\Formation');
+        return $this->hasOne(Formateur::class);
 
     }
 }

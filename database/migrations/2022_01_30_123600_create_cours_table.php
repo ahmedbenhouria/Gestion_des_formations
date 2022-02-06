@@ -17,6 +17,7 @@ class CreateCoursTable extends Migration
             $table->increments('id');
             $table->string('cours_name', 70);	
             $table->string('cours_description');	
+            $table->string('cours_video');	
             $table->unsignedInteger('formation_id');
             $table->foreign('formation_id')->references('id')->on('formations')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();

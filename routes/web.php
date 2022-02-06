@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/formations', 'App\Http\Controllers\FormationController@index')->name('formation');
-Route::get('/formationDetails/{id}', 'App\Http\Controllers\FormationController@details');
+Route::get('/formations', 'App\Http\Controllers\FormationController@index')->middleware(['auth'])->name('formation');
+Route::get('/formationDetails/{id}', 'App\Http\Controllers\FormationController@details')->middleware(['auth']);
+require __DIR__.'/auth.php';

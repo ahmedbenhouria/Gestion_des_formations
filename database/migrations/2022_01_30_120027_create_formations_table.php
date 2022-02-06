@@ -16,8 +16,9 @@ class CreateFormationsTable extends Migration
         Schema::create('formations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('formation_name', 70);	
-            $table->string('formation_description');	
-            $table->enum('formation_level', ['Débutant', 'Intermédiaire', 'Avancé']);	
+            $table->string('formation_description');
+            $table->string('formation_time');		
+            $table->enum('formation_level', ['Beginner friendly', 'Intermediate', 'Advanced']);	
           
             $table->timestamps();
         });
