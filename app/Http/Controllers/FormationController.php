@@ -15,6 +15,7 @@ class FormationController extends Controller
     public function index()
     {
         $formation = Formation::all();
+        
         return view('formation', compact('formation'));
     }
 
@@ -22,5 +23,13 @@ class FormationController extends Controller
         $formation['formation'] = Formation::find($id);
         return view('formationDetails')->with($formation);
     }
+
+    public function search(){
+       $search_text = $_GET['query'];
+       $formation = Formation::where('formation_name','LIKE', '%'.$search_text. '%')->get();
+       return view('search',compact ('formation'));
+     
+    }
+
     
 }

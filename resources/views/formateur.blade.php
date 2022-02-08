@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Formations</title>
+  <title>Trainers</title>
 
 
   <!-- Favicons -->
@@ -26,151 +26,19 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style3.css" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ asset('css/card.css') }}">
-
   <style>
 
 @import url("https://fonts.googleapis.com/css2?family=Play&display=swap");
 
 *{
   font-family: "Play", sans-serif;
-
 }
 
 
-
-body {
-	background-color: #ECECEC;
-	font-family: 'Play', sans-serif;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	min-height: 100vh;
-	margin: 0;
-}
-
-.courses-container {
-  margin-bottom:-70px;
-	
-}
-
-.course {
-	background-color: #fff;
-	border-radius: 10px;
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-	display: flex;
-	max-width: 100%;
-	margin: 20px;
-	overflow: hidden;
-	width: 700px;
-}
-
-.course h6 {
-	opacity: 0.6;
-	margin: 0;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-}
-
-.course h2 {
-	letter-spacing: 1px;
-	margin: 10px 0;
-}
-
-.course-preview {
-	background-color: #474298;
-	color: #fff;
-	padding: 30px;
-	max-width: 250px;
-}
-
-.course-preview a {
-	color: #fff;
-	display: inline-block;
-	font-size: 12px;
-	opacity: 0.6;
-	margin-top: 30px;
-	text-decoration: none;
-}
-
-.course-info {
-	padding: 30px;
-	position: relative;
-	width: 100%;
-}
-
-.progress-container {
-	position: absolute;
-	top: 30px;
-	right: 30px;
-	text-align: right;
-	width: 150px;
-}
-
-.progress {
-	background-color: #ddd;
-	border-radius: 3px;
-	height: 5px;
-	width: 100%;
-}
-
-.progress::after {
-	border-radius: 3px;
-	background-color: #2A265F;
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 5px;
-	width: 66%;
-}
-
-.progress-text {
-	font-size: 10px;
-	opacity: 0.6;
-	letter-spacing: 1px;
-}
-
-.btn {
-	background-color: #474298;
-	border: 0;
-	border-radius: 50px;
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-	color: #fff;
-	font-size: 16px;
-	padding: 12px 25px;
-	position: absolute;
-	bottom: 30px;
-	right: 30px;
-	letter-spacing: 1px;
-}
-
-#grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
-    margin-top:80px;
-
-    
-
-}
-.button{
-  background-color: #474298;
-    border: 0;
-    border-radius: 50px;
-    box-shadow: 0 10px 10px rgb(0 0 0 / 20%);
-    color: #fff;
-    font-size: 14px; 
-    padding: 12px 20px;
-    /* position: absolute; */
- 
-    letter-spacing: 1px;
-}
-.mr-sm-2{
-  padding:20px;
-}
-</style>
+  </style>
 </head>
 
 <body>
@@ -186,8 +54,8 @@ body {
         <ul class="nav-bar">
           <li><a class="nav-link " href="{{ route('home') }}">Home</a></li>
           <li><a class="nav-link " href="#about">About us</a></li>
-          <li><a class="nav-link active " href="{{ route('formation') }}">Courses</a></li>
-          <li><a class="nav-link  " href="{{ route('formateur') }}">Trainers</a></li>
+          <li><a class="nav-link " href="{{ route('formation') }}">Courses</a></li>
+          <li><a class="nav-link active " href="#formateurs">Trainers</a></li>
           <ul  style ="margin-left:30px;">
                         <!-- Authentication Links -->
                         @guest
@@ -226,67 +94,135 @@ body {
          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
+                       
+         
+     
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
     <div class="container-fluid" data-aos="fade-up">
       <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 style="margin-top:-150px;">Our Courses</h1>
-          <h2>Take this opportunity and apply for our courses FOR FREE! </h2>
-     
+          <h1 style="margin-top:-100px;">Our Trainers</h1>
+          <h2>Our talented and knowledgeable trainers working in every industry. </h2>
+         
         </div>
         <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
-          <img src="assets/img/bg-formations.png" class="img-fluid animated" alt="" style="width:400px; margin-left: 80px;">
+          <img src="assets/img/bg-formateurs.png" class="img-fluid animated" alt="" >
         </div>
       </div>
     </div>
 
   </section><!-- End Hero -->
- 
 
-  <form id="grid-container" class="form-inline" method="get" action="{{ url('/search') }}">
-    <div class="grid-item">
-    <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search courses here" aria-label="Search">
-   </div>
-    <div class="grid-item">
-    <button class="button" type="submit">Search</button>
-    </div>
-  </form>
-  @foreach ($formation as $formation)
-
-<section id="formations">
-<div  class="courses-container">
-	<div class="course">
-		<div class="course-preview">
-			<h6>Course</h6>
-			<h2 style="font-size:20px;">{{ $formation->formation_name }}</h2>
-			<a href="#">View all chapters <i class="fas fa-chevron-right"></i></a>
-		</div>
-		<div class="course-info">
-			<div class="progress-container">
-				<div ></div>
-				
-			</div>
-			<h6>{{ $formation->created_at->format('d/m/Y')}}</h6>
-			<h2 style="font-size:15px;">{{ $formation->formation_description }}</h2>
-      <a href="formationDetails/{{ $formation->id }}">	<button class="btn">Read more</button></a>
-		</div>
-	</div>
-</div>
-@endforeach
-
-</section>
-
-
+  
 
 
   
+
+<div class="cards">
+ @foreach ($user as $user)
+<div class="card">
+<div class="additional">
+    <div class="user-card">
+    
+      <svg style="margin-top:60px; margin-left:20px;" width="110" height="110" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" class="center">
+       
+        <style>
+          .line { fill: none; stroke: #2f1b0d; stroke-width:2px; }
+        </style>
+
+        <defs>
+          <clipPath id="scene">
+            <circle cx="125" cy="125" r="115"/>
+          </clipPath>
+       
+        </defs>
+        <circle cx="125" cy="125" r="120" fill="rgba(0,0,0,0.15)" />
+        <g stroke="none" stroke-width="0" clip-path="url(#scene)">
+          <rect x="0" y="0" width="250" height="250" fill="#b0d2e5" />
+         
+        </g>
+      </svg>
+    </div>
+    <div class="more-info">
+      <h1 >{{ $user->name }}</h1>
+      <div class="coords">
+      <span>Position/Role: {{ $user->formateur['formateur_job'] }}</span>
+      <span style="margin-right:100px;">Phone: {{ $user->formateur['formateur_number'] }}</span>
+
+        <span  style="margin-top:70px;">Joined {{ date('F, Y', strtotime($user->created_at)) }}</span>
+      </div>
+      
+      
+    </div>
+</div>
+
+  <div class="general">
+    <h1 style="color:black;">{{ $user->name }}</h1>
+    <p style="margin-left:50px;">{{ $user->formateur['formateur_description'] }}</p>
+    <span class="more">Mouse over the card for more info</span>
+  </div>
+
+  </div>
+  @endforeach
+
+</div>
+      
+<footer id="footer">
+
+<div class="footer-top">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6 footer-contact">
+        <h3>Techie</h3>
+        <p>
+          A108 Adam Street <br>
+          New York, NY 535022<br>
+          United States <br><br>
+          <strong>Phone:</strong> +1 5589 55488 55<br>
+          <strong>Email:</strong> info@example.com<br>
+        </p>
+      </div>
+
+      
+
+      <div class="col-lg-4 col-md-6 footer-newsletter">
+        <h4>Join Our Newsletter</h4>
+        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+        <form action="" method="post">
+          <input type="email" name="email"><input type="submit" value="Subscribe">
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="copyright-wrap d-md-flex py-4">
+    <div class="me-md-auto text-center text-md-start">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Ahmed</span></strong>. All Rights Reserved
+      </div>
+      
+    </div>
+    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+  </div>
+
+</div>
+</footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>

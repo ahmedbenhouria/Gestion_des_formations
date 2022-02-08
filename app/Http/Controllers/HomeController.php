@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Models\Formation;
+use App\Models\User;
+use App\Models\Formateur;
 
 class HomeController extends Controller
 {
@@ -23,9 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = User::whereHas('roles', function($q){
+            $q->where('name', 'formateur');
+        })->get();
+
         
-        $formation = Formation::all();
-        return view('home', ['formation' => $formation]);
+
+        $formation = Formation::count();
+
+        return view('home', ['formation' => $formation], ['user' => $user]);
     }
    
 }

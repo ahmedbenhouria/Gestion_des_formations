@@ -260,7 +260,7 @@ body {
   </form>
   @foreach ($formation as $formation)
 
-<section id="formations">
+<section >
 <div  class="courses-container">
 	<div class="course">
 		<div class="course-preview">

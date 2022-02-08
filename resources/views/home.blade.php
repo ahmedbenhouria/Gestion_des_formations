@@ -40,10 +40,10 @@
 
       <nav id="navbar" class="navbar">
         <ul class="nav-bar">
-          <li><a class="nav-link active" href="{{ route('home') }}">Accueil</a></li>
-          <li><a class="nav-link" href="#about">À propos</a></li>
-          <li><a class="nav-link" href="{{ route('formation') }}">Formations</a></li>
-          <li><a  class="nav-link" href="#formateurs">Formateurs</a></li>
+          <li><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
+          <li><a class="nav-link" href="#about">About us</a></li>
+          <li><a class="nav-link" href="{{ route('formation') }}">Courses</a></li>
+          <li><a  class="nav-link" href="{{ route('formateur') }}">Trainers</a></li>
           <ul  style ="margin-left:30px;">
                         <!-- Authentication Links -->
                         @guest
@@ -93,9 +93,9 @@
     <div class="container-fluid" data-aos="fade-up">
       <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Apprendre sans limites</h1>
-          <h2>Découvrez nos différents cours et formations en ligne gratuits, pour élargir vos connaissances ou pour acquérir de nouvelles compétences qui vous aideront à progresser dans votre carrière professionnelle.</h2>
-          <div><a href="#about" class="btn-get-started scrollto">Rejoignez gratuitement</a></div>
+          <h1 style="font-size:40px;">Start Learning and Embrace New Skills For Better Future.</h1>
+          <h2>With the help of E-Learning, create your own path and drive on your skills on your own to achieve what you seek.</h2>
+          <div><a href="#about" class="btn-get-started scrollto">View All Courses</a></div>
         </div>
         <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
           <img src="assets/img/hero-img.png" class="img-fluid animated" alt="" style="margin-left: 80px;">
@@ -140,23 +140,23 @@
         <div class="row counters">
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Clients</p>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $formation }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Courses</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Projects</p>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $user->count() }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Trainers</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Hours Of Support</p>
+            <span data-purecounter-start="0" data-purecounter-end="250" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Hours Of courses</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Hard Workers</p>
+            <p>All users</p>
           </div>
 
         </div>
@@ -165,35 +165,7 @@
     </section><!-- End Counts Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="formations" class="services section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Formations</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="container" style= " margin-left:40px;display: flex; justify-content: center; align-items: center;flex-wrap: wrap; max-width: 1200px; ">
-        @foreach ($formation->take(3) as $formation)
-
-           <div class="card" style="display: flex;justify-content: center;align-items: center;flex-wrap: wrap; background:linear-gradient(45deg, #5846f9 0%, #490d8d 100%);">
-            <div class="box">
-              <div class="content">
-                <h2>{{ $formation['id'] }}</h2>
-              <h3>{{ $formation['formation_name'] }}</h3>
-              <p>{{ $formation['formation_description'] }}</p>
-              <a href="#">Read More</a>
-              </div>
-            </div>
-         </div>
-         @endforeach
-
-       </div>
-
-       
-      </div>
-
-    </section><!-- End Services Section -->
+    
 
     <!-- ======= Features Section ======= -->
     <section id="features" class="features">
@@ -240,76 +212,29 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Les formateurs</h2>
+          <h2>Our Trainers</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
 
+          @foreach ($user as $user)
+
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <h3>{{ $user->name }}</h3>
+                <h4>{{ $user->email }}</h4>
               </div>
             </div><!-- End testimonial item -->
+            @endforeach
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
+           
             </div><!-- End testimonial item -->
 
           </div>
