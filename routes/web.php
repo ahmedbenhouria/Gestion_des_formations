@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
+Route::get('/formateursInfo', 'App\Http\Controllers\FormateursInfoController@index')->middleware(['auth'])->name('formateursInfo');
+Route::post('/formateursInfo', 'App\Http\Controllers\FormateursInfoController@storeInfo')->middleware(['auth']);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

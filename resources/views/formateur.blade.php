@@ -46,16 +46,17 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
-      <img src="assets/img/logo.png" alt="" style="width:40px; height:50px; ">
-      <!-- Uncomment below if you prefer to use an image logo -->
+    <div style="margin-top:10px; ">
+      <h4 style=" color:white;font-weight:600; ">CNI</h4>     
+      <h4 style=" margin-left:40px; margin-top:-36px; color:#FFD300;font-weight:600;  ">Courses.</h4>
+    </div>      <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul class="nav-bar">
           <li><a class="nav-link " href="{{ route('home') }}">Home</a></li>
-          <li><a class="nav-link " href="#about">About us</a></li>
           <li><a class="nav-link " href="{{ route('formation') }}">Courses</a></li>
-          <li><a class="nav-link active " href="#formateurs">Trainers</a></li>
+          <li><a class="nav-link active " href="{{ route('formateur') }}">Trainers</a></li>
           <ul  style ="margin-left:30px;">
                         <!-- Authentication Links -->
                         @guest
@@ -132,27 +133,37 @@
       <svg style="margin-top:60px; margin-left:20px;" width="110" height="110" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" class="center">
        
         <style>
-          .line { fill: none; stroke: #2f1b0d; stroke-width:2px; }
+          .line { fill: none; stroke: rgba(236, 236, 236, 0.8); stroke-width:2px; }
         </style>
+
 
         <defs>
           <clipPath id="scene">
-            <circle cx="125" cy="125" r="115"/>
+            <circle cx="125" cy="125" r="120"/>
+            
           </clipPath>
-       
+
         </defs>
-        <circle cx="125" cy="125" r="120" fill="rgba(0,0,0,0.15)" />
+        <circle cx="125" cy="125" r="120" fill="rgba(239, 239, 239, 0.8)" />
+      
+
         <g stroke="none" stroke-width="0" clip-path="url(#scene)">
-          <rect x="0" y="0" width="250" height="250" fill="#b0d2e5" />
-         
+          <rect x="0" y="0" width="250" height="250" fill="rgba(236, 236, 236, 0.8)" />
+          <img src="../assets/avatars/{{ $user->avatar }}" style="width:115px; height:115px; margin-top:-130px; margin-left:18px; border-radius:50%;
+  -moz-box-shadow: 0px 6px 5px rgb(76, 81, 126);
+  -webkit-box-shadow: 0px 6px 5px rgb(76, 81, 126);
+  box-shadow: 0px 6px 8px rgb(76, 81, 126);
+  -moz-border-radius:190px;
+  -webkit-border-radius:190px; ">
         </g>
       </svg>
     </div>
+
     <div class="more-info">
       <h1 >{{ $user->name }}</h1>
       <div class="coords">
-      <span>Position/Role: {{ $user->formateur['formateur_job'] }}</span>
-      <span style="margin-right:100px;">Phone: {{ $user->formateur['formateur_number'] }}</span>
+      <span style="margin-top:40px;" >Position/Role: {{ $user->formateur['formateur_job'] }}</span>
+      <span style="margin-right:140px; margin-top:7px;">Phone: {{ $user->formateur['formateur_number'] }}</span>
 
         <span  style="margin-top:70px;">Joined {{ date('F, Y', strtotime($user->created_at)) }}</span>
       </div>
@@ -163,7 +174,7 @@
 
   <div class="general">
     <h1 style="color:black;">{{ $user->name }}</h1>
-    <p style="margin-left:50px;">{{ $user->formateur['formateur_description'] }}</p>
+    <p style="margin-left:8px;">{{ $user->formateur['formateur_description'] }}</p>
     <span class="more">Mouse over the card for more info</span>
   </div>
 

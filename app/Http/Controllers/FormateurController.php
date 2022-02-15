@@ -21,10 +21,5 @@ class FormateurController extends Controller
      
         return view('formateur', ['user' => $user], ['formateur' => $formateur]);
     }
-    public function fo(){
-        $formateur = Formateur::all();
-
-        return $formateur;
-
-    }
+   
 }

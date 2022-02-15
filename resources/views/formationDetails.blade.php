@@ -16,7 +16,6 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,13 +23,13 @@
   <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
   <link href="../assets/css/style2.css" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ asset('../css/card.css') }}">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Play&display=swap");
 
@@ -48,7 +47,8 @@
         font-style:700;
       }
       .text {
-        font-size: 18px;
+        margin-top:20px;
+        font-size: 17px;
         color: white;
       }
     
@@ -56,58 +56,60 @@
         position: relative;
         width:430px;
         height:480px;
-        padding: 30px;
+        padding: 20px;
         border-radius: 10px;
         box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
       }
-    
-      span{
-  position: relative;
- margin-top:50px;
-  display: inline-flex;
-  width: 180px;
-  height: 55px;
-  perspective: 1000px;
-}
-span a{
-  font-size: 19px;
-  letter-spacing: 1px;
-  transform-style: preserve-3d;
-  transform: translateZ(-25px);
-  transition: transform .25s;
-  font-family: 'Play', sans-serif;
-  
-}
-span a:before,
-span a:after{
-  position: absolute;
-  content: "Enroll Now";
-  height: 55px;
-  width: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid black;
-  box-sizing: border-box;
-  border-radius: 10px;
 
-}
-span a:before{
-  font-size: 21px;
-  color: black;
-  background: #FFD300;
-  transform: rotateY(0deg) translateZ(25px);
-  
-}
-span a:after{
-  background: white;
-  color: black;
-  transform: rotateX(90deg) translateZ(25px);
-}
-span a:hover{
-  transform: translateZ(-25px) rotateX(-90deg);
+      .button2 {
+ background: #FBCA1F;
+ font-family: inherit;
+ padding: 0.6em 1.8em;
+ font-weight: 500;
+ font-size: 16px;
+ border: 1px solid black;
+ border-radius: 17px;
+ box-shadow: 0.1em 0.1em;
 }
 
+.button2:hover {
+ transform: translate(-0.05em, -0.05em);
+ box-shadow: 0.15em 0.15em;
+ background: #ddb41e;
+
+}
+
+.button2:active {
+ transform: translate(0.05em, 0.05em);
+ box-shadow: 0.05em 0.05em;
+}
+
+.button1 {
+ background: #979EB5;
+ 
+ font-family: inherit;
+ padding: 0.6em 1.3em;
+ font-weight: 500;
+ font-size: 16px;
+ color:black;
+ border: 1px solid black;
+ border-radius: 17px;
+ box-shadow: 0.1em 0.1em black;
+ margin-top:100px;
+ margin-left:30px;
+}
+
+.button1:hover {
+ 
+ transform: translate(-0.05em, -0.05em);
+ box-shadow: 0.15em 0.15em black;
+
+}
+
+.button1:active {
+ transform: translate(0.05em, 0.05em);
+ box-shadow: 0.05em 0.05em black;
+}
     </style>
 </head>
 
@@ -116,16 +118,17 @@ span a:hover{
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
-      <img src="../assets/img/logo.png" alt="" style="width:40px; height:50px; ">
-      <!-- Uncomment below if you prefer to use an image logo -->
+    <div style="margin-top:10px; ">
+      <h4 style=" color:white;font-weight:600; ">CNI</h4>     
+      <h4 style=" margin-left:40px; margin-top:-36px; color:#FFD300;font-weight:600;  ">Courses.</h4>
+    </div> <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul class="nav-bar">
           <li><a class="nav-link " href="{{ route('home') }}">Home</a></li>
-          <li><a class="nav-link" href="#about">About us</a></li>
           <li><a class="nav-link active" href="{{ route('formation') }}">Courses</a></li>
-          <li><a  class="nav-link" href="#formateurs">Trainers</a></li>
+          <li><a  class="nav-link" href="{{ route('formation') }}">Trainers</a></li>
           <ul  style ="margin-left:30px;">
                         <!-- Authentication Links -->
                         @guest
@@ -176,17 +179,26 @@ span a:hover{
   <div class="col-sm-6">
     <div style="margin-left:130px;" class="card">
       <div class="card-body">
-        <h5 style="color: black;" class="card-title">{{ $formation->created_at->format('l j F, Y')}}</h5>
-        <p style="color: black;"  class="card-text">Niveau: {{ $formation->formation_level }}</p>
+
+      <p style="color: black; font-size:14px; font-weight:500; margin-left:280px;"  class="card-text"> {{ $formation->formation_time }}</p>
+
+      <p style="color: black; font-size:16px; margin-top:0px;  font-weight:500;" >Created at</p>
+        <h5 style="color: black;  font-size:18px;font-weight:600;" class="card-title">{{ $formation->created_at->format('l j F, Y')}}</h5>
+       
+        <p style="color: black; font-size:16px; margin-top:25px; margin-bottom:6px; font-weight:500;" >Experience</p>
+        <p style="color: black; font-size:18px; font-weight:600;"  class="card-text"> {{ $formation->formation_level }}</p>
       </div>
     </div>
   </div>
   <div class="col-sm-6">
   <div style="background-color: transparent; box-shadow:none; border:0; width:700px; margin-left:-20px; " class="card">
       <div class="card-body">
-        <h5 class="title">{{ $formation->formation_name }}</h5>
-        <p class="text" style="padding-right:20px;">{{ $formation->formation_description }}</p>
-        <span><a href="#" >Enroll Now</a></span>
+        <h5 class="title" style="font-weight:600;">{{ $formation->formation_name }}</h5>
+        <p class="text" style="padding-right:20px; font-weight:300;   line-height: 28px;">{{ $formation->formation_description }}</p>
+        <button   class="button2"> BEGIN SERIES
+       </button>
+              <button class="button1"> ADD TO WATCHLIST
+       </button>
       </div>
    <div>
   </div>
@@ -199,7 +211,7 @@ span a:hover{
  
 <section class="main-content">
 		<div class="container">
-			<h1 style="color: black;" class="text-center text-uppercase mb-5">What will you learn?</h1>
+			<h1 style="color: black;" class="text-center text-lowercase mb-5">What will you learn?</h1>
 			<br>
 			<br>
      

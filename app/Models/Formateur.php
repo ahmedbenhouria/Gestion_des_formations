@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Formateur extends Model
 {
     use HasFactory;
-    
+    protected $fillable = [
+        'formateur_number',
+        'formateur_job',
+        'user_id',
+        'formateur_description',
+    ];
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
