@@ -37,12 +37,19 @@
   font-family: "Play", sans-serif;
 
 }
-
+@font-face {
+        src: url('../assets/fonts/ApercuLight.otf');
+        font-family: "Apercu Light";
+    }
+    @font-face {
+        src: url('../assets/fonts/ApercuProRegular.otf');
+        font-family: "Apercu Pro Regular";
+    }
 
 
 body {
 	background-color: #ECECEC;
-	font-family: 'Play', sans-serif;
+	font-family: 'Apercu Pro Regular', sans-serif;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -170,8 +177,7 @@ body {
  
     letter-spacing: 1px;
 }
-input{
-}
+
 </style>
 </head>
 
@@ -207,9 +213,10 @@ input{
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                                <a id="navbarDropdown" class=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img src="../assets/avatars/{{ Auth::user()->avatar }}" style="width:40px; background: white; height:40px; margin-right:0px; border-radius:50%; ">  
+  
+                                  </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" style = "color: black;"
@@ -240,7 +247,7 @@ input{
     <div class="container-fluid" data-aos="fade-up">
       <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 style="margin-top:-150px;">Our Courses</h1>
+          <h1 style="margin-top:-150px;">All Courses</h1>
           <h2>Take this opportunity and apply for our courses FOR FREE! </h2>
      
         </div>
@@ -277,7 +284,7 @@ input{
 				
 			</div>
 			<h6>{{ $formation->created_at->format('d/m/Y')}}</h6>
-			<h2 style="font-size:15px; line-height: 25px;">{{ str_limit($formation->formation_description, 120) }}  </h2>
+			<h2 style=" line-height: 25px; font-family: 'Apercu Light';font-weight:500;font-size:16px;">{{ str_limit($formation->formation_description, 120) }}  </h2>
       <a href="formationDetails/{{ $formation->id }}">	<button class="btn">Read more</button></a>
 		</div>
 	</div>

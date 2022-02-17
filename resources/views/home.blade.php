@@ -28,7 +28,16 @@
   <link rel="stylesheet" href="{{ asset('css/card.css') }}">
 
 </head>
-
+<style>
+  @font-face {
+        src: url('../assets/fonts/ApercuLight.otf');
+        font-family: "Apercu Light";
+    }
+    @font-face {
+        src: url('../assets/fonts/ApercuProRegular.otf');
+        font-family: "Apercu Pro Regular";
+    }
+  </style>
 <body>
 
   <!-- ======= Header ======= -->
@@ -62,9 +71,9 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                                <a id="navbarDropdown" class=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img src="../assets/avatars/{{ Auth::user()->avatar }}" style="width:40px; background: white; height:40px; margin-right:0px; border-radius:50%; ">  
+                                  </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" style = "color: black;"
@@ -96,7 +105,7 @@
       <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1 style="font-size:40px;">Start Learning and Embrace New Skills For Better Future.</h1>
-          <h2>With the help of E-Learning, create your own path and drive on your skills on your own to achieve what you seek.</h2>
+          <h2 style="font-size:20px; font-family: 'Apercu Light';">With the help of E-Learning, create your own path and drive on your skills on your own to achieve what you seek.</h2>
           <div><a href="#about" class="btn-get-started scrollto">View All Courses</a></div>
         </div>
         <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
@@ -121,7 +130,7 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
             <h3>About CNI</h3>
-            <p class="fst-italic">
+            <p style="font-family: 'Apercu Light'; font-size:20px;" class="fst-italic">
             The National Center of Informatics is a public administrative body with legal personality and financial autonomy. It was established on December 30, 1975.
             The CNI is an institution under the authority of the Ministry of Communication Technologies.<br> It operates in the fields of IT and communication technologies and is certified in accordance with ISO 9001-2015.
             </p>

@@ -1,18 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Abel");
-
+@import url("https://fonts.googleapis.com/css2?family=Saira+Condensed&display=swap");
 html,
 body {
-    background: #ececec;
-    font-family: "Play", sans-serif;
+    background: rgb(247, 247, 247);
+    font-family: "Saira Condensed", sans-serif;
 }
 
 .card {
-    width: 450px;
-    height: 250px;
-    background-color: #fff;
-    background: linear-gradient(#f8f8f8, #fff);
-    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+    width: 460px;
+    height: 260px;
+    background-color: #f0ecec;
+    background: #f0ecec;
+    box-shadow: 2px 11px 16px -8px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
+    border: 10px black;
     overflow: hidden;
     position: relative;
     margin: 1.5rem;
@@ -103,10 +103,6 @@ body {
 
 .card.green .additional .coords {
     color: #325c46;
-}
-
-.card .additional .coords span + span {
-    float: right;
 }
 
 .card .additional .stats {

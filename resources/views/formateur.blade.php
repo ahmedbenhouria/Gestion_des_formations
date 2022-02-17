@@ -6,6 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Trainers</title>
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 
   <!-- Favicons -->
@@ -13,10 +14,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -29,13 +27,21 @@
   <link href="assets/css/style3.css" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ asset('css/card.css') }}">
-  <style>
-
-@import url("https://fonts.googleapis.com/css2?family=Play&display=swap");
-
+  <style type="text/css">
+@font-face {
+        src: url('../assets/fonts/ApercuProRegular.otf');
+        font-family: "Apercu Pro Regular";
+    }
+    @font-face {
+        src: url('../assets/fonts/ApercuLight.otf');
+        font-family: "Apercu Light";
+    }
 *{
-  font-family: "Play", sans-serif;
+  font-family: "Apercu Light";
+  font-weight:500;
+    font-size:17px;
 }
+
 
 
   </style>
@@ -73,8 +79,9 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img src="../assets/avatars/{{ Auth::user()->avatar }}" style="width:40px; background: white; height:40px; margin-right:0px; border-radius:50%; ">  
+  
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -157,15 +164,22 @@
   -webkit-border-radius:190px; ">
         </g>
       </svg>
+      <div style="position:relative; left:80px; top:17px;">
+      <i class="fa-brands fa-github fa-xl" style="color: #f0ecec;"></i>
+</div>
+<div style="position:relative; left:40px; top:-8px;">
+<i class="fa-brands fa-facebook fa-xl" style="color: #f0ecec;"></i>
+</div>
     </div>
-
     <div class="more-info">
       <h1 >{{ $user->name }}</h1>
       <div class="coords">
-      <span style="margin-top:40px;" >Position/Role: {{ $user->formateur['formateur_job'] }}</span>
-      <span style="margin-right:140px; margin-top:7px;">Phone: {{ $user->formateur['formateur_number'] }}</span>
-
-        <span  style="margin-top:70px;">Joined {{ date('F, Y', strtotime($user->created_at)) }}</span>
+      <div class="col">
+      <span class="row-md" ><i style="margin-right:8px; margin-top:10px; margin-bottom:14px;" class="fa-solid fa-briefcase"></i>{{ $user->formateur['formateur_job'] }}</span>
+       <br><span  class="row-md-4" > <i style="margin-right:8px;  margin-bottom:14px;" class="fa-solid fa-phone"></i>{{ $user->formateur['formateur_number'] }}</span>
+      <br><span  class="row-md"><i style="margin-right:5px;" class="fa-solid fa-envelope"></i> {{ $user->email }}</span>
+      </div>
+        <span  style="font-size:15px; position:relative; left:120px; top:40px;">Joined {{ date('F, Y', strtotime($user->created_at)) }}</span>
       </div>
       
       
@@ -173,9 +187,9 @@
 </div>
 
   <div class="general">
-    <h1 style="color:black;">{{ $user->name }}</h1>
-    <p style="margin-left:8px;">{{ $user->formateur['formateur_description'] }}</p>
-    <span class="more">Mouse over the card for more info</span>
+    <h1 style="color:black; font-weight:600; font-size:26px;">{{ $user->name }}</h1>
+    <p style="color:black; margin-left:8px;">{{ $user->formateur['formateur_description'] }}</p>
+    <span style="font-size:13px;" class="more">Mouse over the card for more info</span>
   </div>
 
   </div>

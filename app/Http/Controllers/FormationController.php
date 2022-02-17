@@ -19,8 +19,8 @@ class FormationController extends Controller
         return view('formation', compact('formation'));
     }
 
-    function details($id){
-        $formation['formation'] = Formation::find($id);
+    function details($formationid){
+        $formation['formation'] = Formation::find($formationid);
         return view('formationDetails')->with($formation);
     }
 
@@ -31,5 +31,13 @@ class FormationController extends Controller
      
     }
 
-    
+    public function episodesIndex($formationid,$episodeid){
+
+        $formation = Formation::find($formationid);
+
+        $cours = Cours::find($episodeid);
+      
+        return view('episode')->with('formation',$formation)->with('cours',$cours);
+    }
+
 }

@@ -64,7 +64,8 @@ body {
 	max-width: 100%;
 	margin: 20px;
 	overflow: hidden;
-	width: 700px;
+	width: 820px;
+  height:200px;
 }
 
 .course h6 {
@@ -80,10 +81,11 @@ body {
 }
 
 .course-preview {
-	background-color: #474298;
+	background-color: rgb(105, 110, 158);
 	color: #fff;
 	padding: 30px;
 	max-width: 250px;
+  
 }
 
 .course-preview a {
@@ -99,6 +101,7 @@ body {
 	padding: 30px;
 	position: relative;
 	width: 100%;
+
 }
 
 .progress-container {
@@ -134,9 +137,9 @@ body {
 }
 
 .btn {
-	background-color: #474298;
+	background-color: rgb(105, 110, 158);
 	border: 0;
-	border-radius: 50px;
+	border-radius: 20px;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	color: #fff;
 	font-size: 16px;
@@ -156,19 +159,18 @@ body {
 
 }
 .button{
-  background-color: #474298;
+  background-color:  rgb(105, 110, 158);
     border: 0;
-    border-radius: 50px;
+    border-radius: 20px;
     box-shadow: 0 10px 10px rgb(0 0 0 / 20%);
     color: #fff;
     font-size: 14px; 
-    padding: 12px 20px;
+    padding: 8px 20px;
     /* position: absolute; */
  
     letter-spacing: 1px;
 }
-.mr-sm-2{
-  padding:20px;
+input{
 }
 </style>
 </head>
@@ -181,14 +183,12 @@ body {
     <div style="margin-top:10px; ">
       <h4 style=" color:white;font-weight:600; ">CNI</h4>     
       <h4 style=" margin-left:40px; margin-top:-36px; color:#FFD300;font-weight:600;  ">Courses.</h4>
-    </div>
-      <!-- Uncomment below if you prefer to use an image logo -->
+    </div>      <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul class="nav-bar">
           <li><a class="nav-link " href="{{ route('home') }}">Home</a></li>
-          <li><a class="nav-link " href="#about">About us</a></li>
           <li><a class="nav-link active " href="{{ route('formation') }}">Courses</a></li>
           <li><a class="nav-link  " href="{{ route('formateur') }}">Trainers</a></li>
           <ul  style ="margin-left:30px;">
@@ -207,9 +207,10 @@ body {
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                                <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img src="../assets/avatars/{{ Auth::user()->avatar }}" style="width:40px; background: white; height:40px; margin-right:0px; border-radius:50%; ">  
+
+                                  </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" style = "color: black;"
@@ -255,7 +256,7 @@ body {
 
   <form id="grid-container" class="form-inline" method="get" action="{{ url('/search') }}">
     <div class="grid-item">
-    <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search courses here" aria-label="Search">
+    <input style="padding:0.375rem 5.75rem; border-radius:10px;   padding-left:15px;" class="form-control mr-sm-2" name="query" type="search" placeholder="Search courses here" aria-label="Search">
    </div>
     <div class="grid-item">
     <button class="button" type="submit">Search</button>
@@ -263,12 +264,12 @@ body {
   </form>
   @foreach ($formation as $formation)
 
-<section >
+<section id="formations">
 <div  class="courses-container">
 	<div class="course">
 		<div class="course-preview">
 			<h6>Course</h6>
-			<h2 style="font-size:20px;">{{ $formation->formation_name }}</h2>
+			<h2 style="  font-weight:600; font-size:20px;">{{ $formation->formation_name }}</h2>
 			<a href="#">View all chapters <i class="fas fa-chevron-right"></i></a>
 		</div>
 		<div class="course-info">
@@ -277,7 +278,7 @@ body {
 				
 			</div>
 			<h6>{{ $formation->created_at->format('d/m/Y')}}</h6>
-			<h2 style="font-size:15px;">{{ $formation->formation_description }}</h2>
+			<h2 style="font-size:15px; line-height: 25px;">{{ str_limit($formation->formation_description, 120) }}  </h2>
       <a href="formationDetails/{{ $formation->id }}">	<button class="btn">Read more</button></a>
 		</div>
 	</div>
